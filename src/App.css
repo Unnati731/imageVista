@@ -1,38 +1,159 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
+h1 {
+  text-align: center;
+  margin: 100px auto 50px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+form {
+  width: 80%;
+  max-width: 400px;
+  margin: auto;
+  height: 40px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+form input {
+  flex: 1;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #000000;
+  font-size: 18px;
+  padding: 0 30px;
+}
+
+form button {
+  padding: 0 40px;
+  height: 100%;
+  background: #6476b2;
+  color: #fff;
+  font-size: 18px;
+  border: 0;
+  outline: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: #767474;
+  font-size: 18px;
+}
+
+#show-more-btn {
+  background-color: #6476b2;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin: 10px auto 100px;
+  cursor: pointer;
+  display: block;
+}
+#show-more-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#search-result {
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+#search-result img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#search-result img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#search-result.blur {
+  filter: blur(5px);
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#loading-spinner {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-top: 8px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 1000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.App-link {
-  color: #61dafb;
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#search-result div p{
+  font-size: 0.6em;
+  line-height: 1.2;
+  color: #333;
+}
+#search-result div a {
+  color: rgb(75, 75, 211); /* Set the color to blue */
+  text-decoration: underline; /* Add an underline */
+}
+
+#search-result div a:hover {
+  color: darkblue; /* Optional: Change color on hover */
+}
+
+.top-bar {
+  width: 100%;
+  background-color: #6476b2; /* Background color for the bar */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Padding for top and bottom */
+  text-align: left; /* Center the text */
+  font-size: 24px; /* Font size for the title */
+  font-weight: 700; /* Bold text */
+  position: absolute; /* Fix the bar at the top */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure it stays on top */
+  height: 50px;
+
+}
+
+.content {
+  margin-top: 80px; /* Add top margin to push content below the bar */
 }
